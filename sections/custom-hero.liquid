@@ -1,0 +1,21 @@
+{% comment %} Renders the custom hero section snippet {% endcomment %}
+{% render 'hero-section' %}
+
+{% schema %}
+{
+  "name": "Custom Hero",
+  "tag": "section",
+  "class": "section section-custom-hero",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Renders the 'hero-section.liquid' snippet. Configure settings within the snippet file if needed."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Hero"
+    }
+  ]
+}
+{% endschema %}

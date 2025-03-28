@@ -1,0 +1,292 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product-sleepwell",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "Zenith Zenn",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "text": "Upgrade Your Sleep, Upgrade Your Life",
+            "text_style": "subtitle"
+          }
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "benefits": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product-benefits\">\n  <div class=\"benefit-item\">\n    <span class=\"benefit-icon\">🌙</span>\n    <p><strong>Drift Into Deep Sleep Naturally</strong></p>\n  </div>\n  <div class=\"benefit-item\">\n    <span class=\"benefit-icon\">😊</span>\n    <p><strong>Wake Up Rejuvenated - No Grogginess</strong></p>\n  </div>\n  <div class=\"benefit-item\">\n    <span class=\"benefit-icon\">🧘</span>\n    <p><strong>Relax Your Mind & Body Before Bed</strong></p>\n  </div>\n</div>\n<style>\n  .product-benefits {\n    margin: 20px 0;\n    padding: 15px;\n    border-radius: 8px;\n    background-color: rgba(128, 0, 128, 0.05);\n  }\n  .benefit-item {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n  }\n  .benefit-icon {\n    font-size: 24px;\n    margin-right: 10px;\n  }\n</style>"
+          }
+        },
+        "bundle_options": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"bundle-options\">\n  <h3>BUNDLE & SAVE</h3>\n  <div class=\"bundle-option selected\">\n    <input type=\"radio\" name=\"bundle\" id=\"bundle-1\" checked>\n    <label for=\"bundle-1\">\n      <span class=\"option-title\">Buy 1</span>\n      <span class=\"option-price\">$29</span>\n      <span class=\"option-save\">You save $11</span>\n    </label>\n  </div>\n  <div class=\"bundle-option\">\n    <input type=\"radio\" name=\"bundle\" id=\"bundle-2\">\n    <label for=\"bundle-2\">\n      <span class=\"option-title\">Buy 2</span>\n      <span class=\"option-price\">$58</span>\n      <span class=\"option-save\">You save $22</span>\n    </label>\n  </div>\n  <div class=\"bundle-option\">\n    <input type=\"radio\" name=\"bundle\" id=\"bundle-3\">\n    <label for=\"bundle-3\">\n      <span class=\"option-title\">Buy 3</span>\n      <span class=\"option-price\">$87</span>\n      <span class=\"option-save\">You save $33</span>\n      <span class=\"most-popular\">MOST POPULAR</span>\n    </label>\n  </div>\n</div>\n<style>\n  .bundle-options {\n    margin: 20px 0;\n    border: 1px solid #e0e0e0;\n    border-radius: 8px;\n    padding: 15px;\n  }\n  .bundle-options h3 {\n    text-align: center;\n    margin-bottom: 15px;\n  }\n  .bundle-option {\n    border: 1px solid #e0e0e0;\n    border-radius: 8px;\n    padding: 15px;\n    margin-bottom: 10px;\n    display: flex;\n    align-items: center;\n  }\n  .bundle-option.selected {\n    border-color: #9932cc;\n    background-color: rgba(153, 50, 204, 0.05);\n  }\n  .bundle-option label {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n    cursor: pointer;\n  }\n  .option-title {\n    font-weight: bold;\n  }\n  .option-price {\n    font-weight: bold;\n  }\n  .option-save {\n    color: #666;\n    font-size: 0.9em;\n  }\n  .most-popular {\n    background-color: #9932cc;\n    color: white;\n    padding: 2px 8px;\n    border-radius: 4px;\n    font-size: 0.8em;\n    margin-left: 10px;\n  }\n</style>"
+          }
+        },
+        "risk_free": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"risk-free\">\n  <p><span class=\"icon\">👉</span> Try Risk-Free Today!</p>\n</div>\n<style>\n  .risk-free {\n    margin: 15px 0;\n    font-weight: bold;\n  }\n  .risk-free .icon {\n    margin-right: 5px;\n  }\n</style>"
+          }
+        },
+        "trust_badges": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"trust-badges\">\n  <div class=\"badge\">\n    <div class=\"badge-icon\">🏆</div>\n    <div class=\"badge-text\">FDA & GMP-Certified</div>\n  </div>\n  <div class=\"badge\">\n    <div class=\"badge-icon\">🔬</div>\n    <div class=\"badge-text\">3rd-Party Lab Tested</div>\n  </div>\n  <div class=\"badge\">\n    <div class=\"badge-icon\">✅</div>\n    <div class=\"badge-text\">30-Day Guarantee</div>\n  </div>\n</div>\n<style>\n  .trust-badges {\n    display: flex;\n    justify-content: space-between;\n    margin: 30px 0;\n    text-align: center;\n  }\n  .badge {\n    flex: 1;\n    padding: 10px;\n  }\n  .badge-icon {\n    font-size: 24px;\n    margin-bottom: 5px;\n  }\n  .badge-text {\n    font-size: 0.9em;\n    font-weight: bold;\n  }\n</style>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "subtitle",
+        "rating",
+        "price",
+        "benefits",
+        "variant_picker",
+        "quantity_selector",
+        "bundle_options",
+        "risk_free",
+        "buy_buttons",
+        "trust_badges",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "stacked",
+        "media_size": "large",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "product-features": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "😴 Sleep Deeply, Dream Sweetly",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Experience truly restorative sleep with <strong>SleepWell Gummies</strong>. Our premium <strong>Passionflower & B6</strong> blend helps you fall asleep naturally and wake up feeling completely refreshed.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "accent-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "feature-columns": {
+      "type": "multicolumn",
+      "blocks": {
+        "column-1": {
+          "type": "column",
+          "settings": {
+            "title": "🌙 Drift Off Effortlessly",
+            "text": "<p>Calm your racing mind in minutes flat</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column-2": {
+          "type": "column",
+          "settings": {
+            "title": "⚡ Morning Vitality",
+            "text": "<p>Wake up feeling energized and clear-headed</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column-3": {
+          "type": "column",
+          "settings": {
+            "title": "🌿 Naturally Powerful",
+            "text": "<p>Premium botanicals, no synthetic additives</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column-1",
+        "column-2",
+        "column-3"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "accent-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product-info": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "What's Inside",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Vitamin B6:</strong> Supports the production of melatonin and serotonin, essential for regulating sleep cycles.</p><p><strong>Passionflower Extract:</strong> A natural sedative that helps reduce anxiety and improve sleep quality.</p><p><strong>Melatonin:</strong> Helps regulate your sleep-wake cycle for faster, deeper sleep.</p><p><strong>Low Sugar Formula:</strong> All the benefits without the sugar crash, perfect for nightly use.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "background-1",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "additional-features": {
+      "type": "rich-text",
+      "blocks": {
+        "heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "🌸 Nature's Soothing",
+            "heading_size": "h2"
+          }
+        },
+        "text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Harness the power of centuries-tested botanical sleep aids into gummies for better bedtime.</p>"
+          }
+        },
+        "heading-2": {
+          "type": "heading",
+          "settings": {
+            "heading": "🌙 Gentle, Real Results",
+            "heading_size": "h2"
+          }
+        },
+        "text-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Drift off smoothly and rest like never before, free from grogginess or chemical hangovers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading-1",
+        "text-1",
+        "heading-2",
+        "text-2"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "background-1",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-features",
+    "feature-columns",
+    "product-info",
+    "additional-features",
+    "product-recommendations"
+  ]
+}

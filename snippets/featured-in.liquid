@@ -1,0 +1,121 @@
+{% comment %}
+  Featured In Section - Shopify Liquid Snippet
+  
+  This snippet creates a premium, Apple-inspired "Featured In" section
+  that displays logos of publications or brands that have featured the company.
+  
+  Usage:
+  {% render 'featured-in' %}
+  
+  Optional parameters:
+  - title: Override the default section title
+  - logos: Array of logo objects (each with image, alt)
+{% endcomment %}
+
+{%- liquid
+  assign section_title = title | default: 'Featured In'
+  
+  unless logos
+    assign logos = section.blocks | where: 'type', 'logo'
+    unless logos.size > 0
+      assign logos = array
+      
+      assign logo1 = object
+      assign logo1_image = 'placeholder-logo-1.png'
+      assign logo1_alt = 'Wellness Today'
+      assign logos = logos | push: logo1
+      
+      assign logo2 = object
+      assign logo2_image = 'placeholder-logo-2.png'
+      assign logo2_alt = 'Health Magazine'
+      assign logos = logos | push: logo2
+      
+      assign logo3 = object
+      assign logo3_image = 'placeholder-logo-3.png'
+      assign logo3_alt = 'Nutrition Daily'
+      assign logos = logos | push: logo3
+      
+      assign logo4 = object
+      assign logo4_image = 'placeholder-logo-4.png'
+      assign logo4_alt = 'Modern Health'
+      assign logos = logos | push: logo4
+      
+      assign logo5 = object
+      assign logo5_image = 'placeholder-logo-5.png'
+      assign logo5_alt = 'Lifestyle Journal'
+      assign logos = logos | push: logo5
+    endunless
+  endunless
+-%}
+
+<section class="featured-in-section">
+  <div class="container">
+    <h3 class="featured-in-title">{{ section_title }}</h3>
+    <div class="featured-logos">
+      {% for logo in logos %}
+        {% if logo.image %}
+          <img src="{{ logo.image | img_url: '150x' }}" alt="{{ logo.alt | default: 'Featured Publication' }}" class="featured-logo">
+        {% else %}
+          <img src="{{ 'placeholder-logo.png' | asset_url }}" alt="{{ logo.alt | default: 'Featured Publication' }}" class="featured-logo">
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured In",
+  "tag": "section",
+  "class": "featured-in-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Featured In"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Publication Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt Text",
+          "default": "Featured Publication"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured In",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

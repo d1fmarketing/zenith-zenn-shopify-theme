@@ -1,0 +1,30 @@
+:root {
+  /* Apple-inspired White/Dark Gray Theme */
+  --color-background: #FFFFFF; /* White */
+  --color-background-alt: #F8F9FA; /* Very Light Gray */
+  --color-accent: #394450; /* Dark Gray */
+  --color-accent-lighter: #586069; /* Softer gray for announcement bar */
+  --color-accent-darker: #2D3642; /* Slightly Darker Gray for Hover */
+  --color-text-dark: #333333; /* Dark Gray for text on light bg */
+  --color-text-light: rgba(57, 68, 80, 0.8); /* Transparent Dark Gray for secondary text */
+  --color-text-on-accent: #FFFFFF; /* White text on navy */
+  --color-border: #EEEEEE; /* Very Light border color */
+  --color-header-bg: #394450; /* Gray Header */
+  --color-footer-bg: #394450; /* Gray Footer */
+  --color-footer-text: #FFFFFF; /* White Footer Text */
+  --color-footer-heading: #FFFFFF; /* White Footer Headings */
+  --color-footer-link: #FFFFFF; /* White Footer Links */
+
+  /* Map old names for compatibility */
+  --color-primary: var(--color-accent);
+  --color-primary-bg: var(--color-background);
+  --color-primary-bg-alt: var(--color-background-alt);
+  --color-text-on-dark: var(--color-text-dark);
+  --color-text-on-light: var(--color-text-dark);
+  --color-hero-bg: var(--color-background);
+  --color-dark-bg: var(--color-footer-bg);
+  --color-hero-button: var(--color-accent);
+  --color-hero-button-hover: var(--color-accent-darker);
+  --color-product-card-bg: #FFFFFF;
+  --color-product-card-text: var(--color-text-dark);
+}

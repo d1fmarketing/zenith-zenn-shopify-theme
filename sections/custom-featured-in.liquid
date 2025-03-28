@@ -1,0 +1,21 @@
+{% comment %} Renders the custom featured-in section snippet {% endcomment %}
+{% render 'featured-in' %}
+
+{% schema %}
+{
+  "name": "Custom Featured In",
+  "tag": "section",
+  "class": "section section-custom-featured-in",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Renders the 'featured-in.liquid' snippet. Configure settings within the snippet file if needed."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Featured In"
+    }
+  ]
+}
+{% endschema %}

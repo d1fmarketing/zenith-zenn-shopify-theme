@@ -1,0 +1,127 @@
+{% comment %}
+  Brand Promise Section - Shopify Liquid Snippet
+  
+  This snippet creates a premium, Apple-inspired brand promise section
+  that can be easily integrated into a Shopify theme.
+  
+  Usage:
+  {% render 'brand-promise' %}
+  
+  Optional parameters:
+  - title: Override the default section title
+  - subtitle: Override the default section subtitle
+  - values: Array of brand values (each with icon, title, text)
+{% endcomment %}
+
+{%- liquid
+  assign section_title = title | default: 'The Zenith Zenn Promise'
+  assign section_subtitle = subtitle | default: 'We believe in creating premium wellness products that help you achieve balance, clarity, and vitality through science-backed formulations and the highest quality ingredients.'
+  
+  unless values
+    assign values = section.blocks | where: 'type', 'value'
+    unless values.size > 0
+      assign values = array
+      
+      assign value1 = object
+      assign value1_icon = 'fas fa-flask'
+      assign value1_title = 'Science-Backed Formulas'
+      assign value1_text = 'Every product is developed by nutritionists and backed by scientific research to ensure optimal effectiveness.'
+      assign values = values | push: value1
+      
+      assign value2 = object
+      assign value2_icon = 'fas fa-leaf'
+      assign value2_title = 'Premium Natural Ingredients'
+      assign value2_text = 'We source only the highest quality natural ingredients, free from artificial additives and unnecessary fillers.'
+      assign values = values | push: value2
+      
+      assign value3 = object
+      assign value3_icon = 'fas fa-heart'
+      assign value3_title = 'Wellness Commitment'
+      assign value3_text = 'Our mission is to support your complete wellness journey with products that deliver real, noticeable results.'
+      assign values = values | push: value3
+    endunless
+  endunless
+-%}
+
+<section class="brand-promise-section" id="promise">
+  <div class="container brand-promise-container">
+    <h2 class="brand-promise-title">{{ section_title }}</h2>
+    <p class="brand-promise-subtitle">{{ section_subtitle }}</p>
+    
+    <div class="brand-values-grid">
+      {% for value in values %}
+        <div class="brand-value-item fade-in">
+          <div class="brand-value-icon"><i class="{{ value.icon | default: value_icon }}"></i></div>
+          <h3 class="brand-value-title">{{ value.title | default: value_title }}</h3>
+          <p class="brand-value-text">{{ value.text | default: value_text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Promise",
+  "tag": "section",
+  "class": "brand-promise-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "The Zenith Zenn Promise"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "We believe in creating premium wellness products that help you achieve balance, clarity, and vitality through science-backed formulations and the highest quality ingredients."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Brand Value",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon Class",
+          "info": "Font Awesome icon class (e.g., 'fas fa-flask')",
+          "default": "fas fa-flask"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Value Title",
+          "default": "Value Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Value Description",
+          "default": "Value description text goes here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Promise",
+      "blocks": [
+        {
+          "type": "value"
+        },
+        {
+          "type": "value"
+        },
+        {
+          "type": "value"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

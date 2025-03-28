@@ -1,0 +1,194 @@
+{
+  "sections": {
+    "custom_hero": {
+      "type": "custom-hero",
+      "settings": {}
+    },
+    "custom_featured_in": {
+      "type": "custom-featured-in",
+      "settings": {}
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Our Premium Gummies",
+        "heading_size": "h2",
+        "description": "Expertly formulated supplements that combine science and nature for optimal wellness results.",
+        "show_description": true,
+        "description_style": "subheading",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "key_benefits": {
+      "type": "multicolumn",
+      "disabled": true,
+      "blocks": {
+        "col1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/placeholder-icon1.png",
+            "title": "Premium Ingredients",
+            "text": "<p>Placeholder text</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/placeholder-icon2.png",
+            "title": "Enhanced Well-being",
+            "text": "<p>Placeholder text</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/placeholder-icon3.png",
+            "title": "Scientifically Formulated",
+            "text": "<p>Placeholder text</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/placeholder-icon4.png",
+            "title": "Quality Assurance",
+            "text": "<p>Placeholder text</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["col1", "col2", "col3", "col4"],
+      "settings": {
+        "title": "Key Benefits",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "circle",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "results_section": {
+      "type": "rich-text",
+      "disabled": true,
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Results That Speak for Themselves",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Placeholder for statistical metrics and percentage circles.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+     "custom_brand_promise": {
+      "type": "custom-brand-promise",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "multicolumn",
+      "disabled": true,
+      "blocks": {
+        "testimonial1": {
+          "type": "column",
+          "settings": {
+            "title": "Customer Name 1",
+            "text": "<p>Positive customer review placeholder.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "testimonial2": {
+          "type": "column",
+          "settings": {
+            "title": "Customer Name 2",
+            "text": "<p>Positive customer review placeholder.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "testimonial3": {
+          "type": "column",
+          "settings": {
+            "title": "Customer Name 3",
+            "text": "<p>Positive customer review placeholder.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["testimonial1", "testimonial2", "testimonial3"],
+      "settings": {
+        "title": "Testimonials",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "custom_hero",
+    "custom_featured_in",
+    "featured_collection",
+    "key_benefits",
+    "results_section",
+    "custom_brand_promise",
+    "testimonials"
+  ]
+}

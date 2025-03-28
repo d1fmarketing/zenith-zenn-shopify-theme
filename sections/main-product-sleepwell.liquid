@@ -1,0 +1,346 @@
+{% comment %}
+  Custom product template for SleepWell Gummies
+  This template extends the standard main-product section with custom styling and features
+{% endcomment %}
+
+<section class="page-width">
+  <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} product--{{ section.settings.media_position }} grid grid--1-col {% if section.settings.enable_sticky_info %}product--sticky{% endif %}">
+    <div class="grid__item product__media-wrapper">
+      <div class="product__column-sticky">
+        {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
+        {%- if first_3d_model -%}
+          <div class="product-media-modal__toggle" data-media-id="{{ first_3d_model.id }}">
+            <div class="product-media-modal__toggle-text">
+              {% render 'icon-3d-model' %}
+              {{ 'products.product.view_in_space' | t }}
+            </div>
+          </div>
+        {%- endif -%}
+
+        <slider-component class="slider-mobile-gutter">
+          <ul class="product__media-list grid grid--peek list-unstyled slider slider--mobile" role="list">
+            {%- if product.selected_or_first_available_variant.featured_media != null -%}
+              {%- assign media = product.selected_or_first_available_variant.featured_media -%}
+              <li class="product__media-item grid__item slider__slide" data-media-id="{{ section.id }}-{{ media.id }}">
+                {% render 'product-thumbnail', media: media, position: 'featured', loop: section.settings.enable_video_looping, modal_id: section.id %}
+              </li>
+            {%- endif -%}
+            {%- for media in product.media -%}
+              {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+                <li class="product__media-item grid__item slider__slide" data-media-id="{{ section.id }}-{{ media.id }}">
+                  {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id %}
+                </li>
+              {%- endunless -%}
+            {%- endfor -%}
+          </ul>
+          <div class="slider-buttons no-js-hidden">
+            <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+            <div class="slider-counter caption">
+              <span class="slider-counter--current">1</span>
+              <span aria-hidden="true"> / </span>
+              <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+              <span class="slider-counter--total">{{ product.media.size }}</span>
+            </div>
+            <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">{% render 'icon-caret' %}</button>
+          </div>
+        </slider-component>
+      </div>
+    </div>
+    <div class="product__info-wrapper grid__item">
+      <div class="product__column-sticky">
+        <div id="ProductInfo-{{ section.id }}" class="product__info-container">
+          {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                {% render block %}
+              {%- when 'text' -%}
+                <div class="product__text{% if block.settings.text_style == 'subtitle' %} product__subtitle{% endif %}" {{ block.shopify_attributes }}>
+                  {{ block.settings.text }}
+                </div>
+              {%- when 'title' -%}
+                <h1 class="product__title" {{ block.shopify_attributes }}>
+                  {{ product.title | escape }}
+                  {% if block.settings.show_moon_emoji %}
+                    <span class="product-emoji">🌙</span>
+                  {% endif %}
+                </h1>
+              {%- when 'price' -%}
+                <div class="product__price" {{ block.shopify_attributes }}>
+                  {% render 'price', product: product, use_variant: true, show_badges: true %}
+                </div>
+              {%- when 'variant_picker' -%}
+                {% render 'variant-picker', product: product, block: block, product_form_id: product_form_id %}
+              {%- when 'quantity_selector' -%}
+                <div class="product__quantity" {{ block.shopify_attributes }}>
+                  {% render 'quantity-selector', variant: product.selected_or_first_available_variant, id: section.id, label: 'products.product.quantity.label' | t, show_label: true %}
+                </div>
+              {%- when 'buy_buttons' -%}
+                <div {{ block.shopify_attributes }}>
+                  {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id %}
+                </div>
+              {%- when 'description' -%}
+                <div class="product__description rte" {{ block.shopify_attributes }}>
+                  {{ product.description }}
+                </div>
+              {%- when 'custom_liquid' -%}
+                <div class="product__custom-liquid" {{ block.shopify_attributes }}>
+                  {{ block.settings.custom_liquid }}
+                </div>
+              {%- when 'rating' -%}
+                <div class="product__rating" {{ block.shopify_attributes }}>
+                  {% if product.metafields.reviews.rating.value != blank %}
+                    <div class="rating">
+                      {% assign rating_decimal = 0 %}
+                      {% assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1 %}
+                      {% if decimal >= 0.3 and decimal <= 0.7 %}
+                        {% assign rating_decimal = 0.5 %}
+                      {% elsif decimal > 0.7 %}
+                        {% assign rating_decimal = 1 %}
+                      {% endif %}
+                      <div class="rating-stars">
+                        {% for i in (1..5) %}
+                          {% if product.metafields.reviews.rating.value >= i %}
+                            <span class="rating-star full">★</span>
+                          {% elsif product.metafields.reviews.rating.value >= i | minus: 0.5 %}
+                            <span class="rating-star half">★</span>
+                          {% else %}
+                            <span class="rating-star empty">☆</span>
+                          {% endif %}
+                        {% endfor %}
+                      </div>
+                      <span class="rating-count">
+                        {{ product.metafields.reviews.rating_count }} {{ 'products.product.reviews' | t }}
+                      </span>
+                    </div>
+                  {% endif %}
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% render 'product-sleepwell-gummies-styles' %}
+
+{% schema %}
+{
+  "name": "t:sections.main-product.name",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text",
+      "name": "t:sections.main-product.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Text block",
+          "label": "t:sections.main-product.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.main-product.blocks.text.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.main-product.blocks.text.settings.text_style.options__2.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-product.blocks.title.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_moon_emoji",
+          "default": true,
+          "label": "Show moon emoji"
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "t:sections.main-product.blocks.price.name",
+      "limit": 1
+    },
+    {
+      "type": "quantity_selector",
+      "name": "t:sections.main-product.blocks.quantity_selector.name",
+      "limit": 1
+    },
+    {
+      "type": "variant_picker",
+      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            }
+          ],
+          "default": "button",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+        }
+      ]
+    },
+    {
+      "type": "buy_buttons",
+      "name": "t:sections.main-product.blocks.buy_buttons.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "default": true,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "t:sections.main-product.blocks.description.name",
+      "limit": 1
+    },
+    {
+      "type": "custom_liquid",
+      "name": "t:sections.main-product.blocks.custom_liquid.name",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.label",
+          "info": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.info"
+        }
+      ]
+    },
+    {
+      "type": "rating",
+      "name": "Product rating",
+      "limit": 1
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "media_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.main-product.settings.media_position.options__1.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.main-product.settings.media_position.options__2.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.main-product.settings.media_position.label",
+      "info": "t:sections.main-product.settings.media_position.info"
+    },
+    {
+      "type": "select",
+      "id": "media_size",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.main-product.settings.media_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-product.settings.media_size.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-product.settings.media_size.options__3.label"
+        }
+      ],
+      "default": "large",
+      "label": "t:sections.main-product.settings.media_size.label",
+      "info": "t:sections.main-product.settings.media_size.info"
+    },
+    {
+      "type": "select",
+      "id": "gallery_layout",
+      "options": [
+        {
+          "value": "stacked",
+          "label": "t:sections.main-product.settings.gallery_layout.options__1.label"
+        },
+        {
+          "value": "thumbnail",
+          "label": "t:sections.main-product.settings.gallery_layout.options__2.label"
+        },
+        {
+          "value": "thumbnail_slider",
+          "label": "t:sections.main-product.settings.gallery_layout.options__3.label"
+        }
+      ],
+      "default": "stacked",
+      "label": "t:sections.main-product.settings.gallery_layout.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_info",
+      "default": true,
+      "label": "t:sections.main-product.settings.enable_sticky_info.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "default": false,
+      "label": "t:sections.main-product.settings.enable_video_looping.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

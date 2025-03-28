@@ -1,0 +1,259 @@
+/* SleepWell Gummies Product Page Styles */
+
+/* Main color variables */
+:root {
+  --sleepwell-primary: #9932cc;    /* Purple */
+  --sleepwell-secondary: #f8f4ff;  /* Light purple background */
+  --sleepwell-accent: #ffcc00;     /* Yellow accent for stars/highlights */
+  --sleepwell-text: #333333;       /* Dark text */
+  --sleepwell-light-text: #666666; /* Light text */
+}
+
+/* Product title styling */
+.product__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--sleepwell-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Product subtitle */
+.product__subtitle {
+  font-size: 1.2rem;
+  color: var(--sleepwell-light-text);
+  margin-bottom: 1.5rem;
+}
+
+/* Product rating stars */
+.rating {
+  color: var(--sleepwell-accent);
+  margin-bottom: 1rem;
+}
+
+.rating-count {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.rating-count::before {
+  content: "✓";
+  color: #4CAF50;
+  margin-right: 0.25rem;
+}
+
+/* Price styling */
+.price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.price__regular {
+  color: var(--sleepwell-primary);
+}
+
+.price__sale {
+  color: var(--sleepwell-primary);
+}
+
+.price__compare {
+  text-decoration: line-through;
+  color: var(--sleepwell-light-text);
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+}
+
+.price__badge {
+  background-color: var(--sleepwell-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+/* Bundle options styling */
+.bundle-options {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.bundle-options h3 {
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0;
+}
+
+.bundle-option {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.bundle-option:last-child {
+  border-bottom: none;
+}
+
+.bundle-option:hover {
+  background-color: var(--sleepwell-secondary);
+}
+
+.bundle-option.selected {
+  background-color: var(--sleepwell-secondary);
+  border-left: 4px solid var(--sleepwell-primary);
+}
+
+.bundle-option input[type="radio"] {
+  margin-right: 1rem;
+}
+
+.option-title {
+  font-weight: 700;
+  flex: 1;
+}
+
+.option-price {
+  font-weight: 700;
+  color: var(--sleepwell-primary);
+  margin-right: 1rem;
+}
+
+.option-save {
+  color: var(--sleepwell-light-text);
+  font-size: 0.9rem;
+}
+
+.most-popular {
+  background-color: var(--sleepwell-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+/* Benefits styling */
+.product-benefits {
+  background-color: var(--sleepwell-secondary);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.benefit-item:last-child {
+  margin-bottom: 0;
+}
+
+.benefit-icon {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+/* Trust badges */
+.trust-badges {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.badge {
+  flex: 1;
+  padding: 1rem;
+}
+
+.badge-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Add to cart button */
+.product-form__submit {
+  background-color: var(--sleepwell-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.product-form__submit:hover {
+  background-color: #7b28a4; /* Darker purple */
+}
+
+/* Feature columns */
+.multicolumn {
+  background-color: var(--sleepwell-primary);
+  color: white;
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
+
+.multicolumn .title {
+  color: white;
+  font-weight: 700;
+}
+
+.multicolumn .rte {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Product info section */
+.product-info {
+  margin: 2rem 0;
+}
+
+.product-info h2 {
+  color: var(--sleepwell-primary);
+  margin-bottom: 1rem;
+}
+
+.product-info p {
+  margin-bottom: 1rem;
+}
+
+.product-info strong {
+  color: var(--sleepwell-primary);
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 749px) {
+  .product__title {
+    font-size: 2rem;
+  }
+  
+  .trust-badges {
+    flex-direction: column;
+  }
+  
+  .badge {
+    margin-bottom: 1rem;
+  }
+}

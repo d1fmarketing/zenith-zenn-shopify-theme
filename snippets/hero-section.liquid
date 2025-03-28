@@ -1,0 +1,149 @@
+{% comment %}
+  Hero Section - Shopify Liquid Snippet
+  
+  This snippet creates a premium, Apple-inspired hero section
+  with enhanced typography, animations, and responsive design.
+  
+  Usage:
+  {% render 'hero-section' %}
+  
+  Optional parameters:
+  - title: Override the default hero title
+  - subtitle: Override the default hero subtitle
+  - button_text: Override the default button text
+  - button_url: Override the default button URL
+  - image: Override the default hero image
+  - image_alt: Override the default image alt text
+{% endcomment %}
+
+{%- liquid
+  assign hero_title = title | default: 'Experience Premium Wellness'
+  assign hero_subtitle = subtitle | default: 'Scientifically crafted gummies designed for optimal wellness, with natural ingredients that deliver results you can see and feel.'
+  assign hero_button_text = button_text | default: 'Shop Gummies'
+  assign hero_button_url = button_url | default: '#products'
+  assign hero_image = image | default: section.settings.image
+  assign hero_image_alt = image_alt | default: 'Zenith Zenn Premium Wellness Gummies'
+-%}
+
+<section class="hero-section" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-title">{{ hero_title }}</h1>
+        <p class="hero-subtitle">{{ hero_subtitle }}</p>
+        <div class="hero-cta">
+          <a href="{{ hero_button_url }}" class="btn btn-primary">{{ hero_button_text }}</a>
+        </div>
+      </div>
+      <div class="hero-image-container">
+        {% if hero_image %}
+          <img src="{{ hero_image | img_url: '800x' }}" alt="{{ hero_image_alt }}" class="hero-image">
+        {% else %}
+          <img src="{{ 'hero-placeholder.jpg' | asset_url }}" alt="{{ hero_image_alt }}" class="hero-image">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "tag": "section",
+  "class": "hero-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Hero Title",
+      "default": "Experience Premium Wellness"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Hero Subtitle",
+      "default": "Scientifically crafted gummies designed for optimal wellness, with natural ingredients that deliver results you can see and feel."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Gummies"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL",
+      "default": "#products"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image Alt Text",
+      "default": "Zenith Zenn Premium Wellness Gummies"
+    },
+    {
+      "type": "header",
+      "content": "Advanced Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_parallax",
+      "label": "Enable Parallax Effect",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 400,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Desktop Height",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 300,
+      "max": 600,
+      "step": 50,
+      "unit": "px",
+      "label": "Mobile Height",
+      "default": 500
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  {% if section.settings.desktop_height %}
+    .hero-section {
+      min-height: {{ section.settings.desktop_height }}px;
+    }
+  {% endif %}
+  
+  {% if section.settings.enable_parallax == false %}
+    .hero-image {
+      animation: none !important;
+    }
+  {% endif %}
+  
+  @media screen and (max-width: 767px) {
+    {% if section.settings.mobile_height %}
+      .hero-section {
+        min-height: {{ section.settings.mobile_height }}px;
+      }
+    {% endif %}
+  }
+</style>
